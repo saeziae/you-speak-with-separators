@@ -4,7 +4,7 @@
   </head>
 
   <body>
-    <input id="0" value="" /><br />
+    <input id="0" value="" placeholder="随机混淆" /><br />
     <textarea id="1" rows="6" cols="50" oninput="changed();"></textarea>
     <hr />
     <textarea id="2" rows="6" cols="50" readonly></textarea>
@@ -13,10 +13,63 @@
         var b = document.getElementById("1").value;
         a = document.getElementById("0").value;
         if (a == "") {
-          a = "&zwnj;";
+          a = new Array(
+            "\u0020",
+            "\u00AD",
+            "\u17B4",
+            "\u17B5",
+            "\u180E",
+            "\u200A",
+            "\u200B",
+            "\u200C",
+            "\u202F",
+            "\u2060",
+            "\u2063",
+            "\uFEFF",
+            "\u0020",
+            "\u00AD",
+            "\u17B4",
+            "\u17B5",
+            "\u180E",
+            "\u200A",
+            "\u200B",
+            "\u200C",
+            "\u202F",
+            "\u2060",
+            "\u2063",
+            "\uFEFF",
+            "\u0020",
+            "\u00AD",
+            "\u17B4",
+            "\u17B5",
+            "\u180E",
+            "\u200A",
+            "\u200B",
+            "\u200C",
+            "\u202F",
+            "\u2060",
+            "\u2063",
+            "\uFEFF",
+            "\u0E34",
+            "\u0E35",
+            "\u0E36",
+            "\u0E37",
+            "\u0E38",
+            "\u0E3A",
+            "\u0E48",
+            "\u0E49",
+            "\u0E4A",
+            "\u0E4B"
+          );
+          var c = "";
+          for (let char of b) {
+            c = c + char + a[Math.floor(Math.random() * a.length)];
+          }
+          document.getElementById("2").innerText = c;
+        } else {
+          b = b.replace(/(.)/g, "$1" + a);
+          document.getElementById("2").innerHTML = b;
         }
-        b = b.replace(/(.)/g, "$1" + a);
-        document.getElementById("2").innerHTML = b;
       }
     </script>
   </body>
