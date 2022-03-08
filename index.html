@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>你 打 字 带 空 格</title>
+  </head>
+  <body>
+    <textarea id="1" rows="6" cols="50" oninput="changed();"></textarea>
+    <hr />
+    <textarea id="2" rows="6" cols="50" readonly></textarea>
+    <script>
+      function changed() {
+        var b = document.getElementById("1").value;
+        b = b.replace(/(.)/g, "$1&zwnj;");
+        document.getElementById("2").innerHTML = b;
+      }
+    </script>
+  </body>
+</html>
